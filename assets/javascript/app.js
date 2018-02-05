@@ -1,35 +1,25 @@
   
+//adds ingredients to ingredient field as a new chip
+  $(document).on("click", '#add', function(event) {
+    event.preventDefault();
+    var newIngredient = $("#ingredients").val().trim();
+    console.log(newIngredient);
+    
+    var newDiv = $("<div>", );
+    newDiv.addClass("chip");
+    newDiv.attr("data-name", newIngredient);
+    newDiv.text(newIngredient);
+    
+    var newI = $("<i>");
+    newI.addClass("close material-icons");
+    newI.text("X")
+    
+    $("#ingredientField").append(newDiv);
+    newDiv.append(newI);
 
-//   $('.chips').on('chip.add', function(e, chip){
-//     // you have the added chip here
-//   });
+    $("#ingredients").val("");
+  });
 
-//   $('.chips').on('chip.delete', function(e, chip){
-//     // you have the deleted chip here
-//   });
 
-//   $('.chips').on('chip.select', function(e, chip){
-//     // you have the selected chip here
-//   });
-// //access chip data
-  
-// var ingredient = $('.chip').val();
-// console.log(ingredient);
-//   $('.chip').material_chip('data-name');
-//   console.log($(".chip").val());
 
-//     $('.chips-placeholder').material_chip({
-//     placeholder: 'Enter a tag',
-//     secondaryPlaceholder: '+Tag',
-//   });
-//   $('.chips-autocomplete').material_chip({
-//     autocompleteOptions: {
-//       data: {
-//         'Apple': null,
-//         'Microsoft': null,
-//         'Google': null
-//       },
-//       limit: Infinity,
-//       minLength: 1
-//     }
-//   });
+
