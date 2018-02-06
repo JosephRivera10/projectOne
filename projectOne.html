@@ -4,7 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Chef Now</title>
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script rel="stylesheet" type="text/javascript" src="assets/javascript/app.js"></script>
@@ -47,15 +49,23 @@
 
 
 	<div class="row">
-    	<div class="col s12 m6" id="ingredientField">
- 			<div class="chip" data-name="ingredient">
+    	<div class="col s12 m6">
+ 			  <div id="ingredientField">
+
+        </div>
+        <!-- <div class="chip" data-name="ingredient">
     		Chicken
     		<i class="close material-icons">X</i>
-  			</div>
- 		</div>
+  			</div> -->
+        <br>
+        <div>
+        <a id="search" class="waves-effect waves-light btn"><i class="fas fa-search"></i>Search</a>
+        </div>
+      </div>
 	</div>
 
    <br>
+   <div id="cardArea">
      <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="images/office.jpg">
@@ -71,6 +81,7 @@
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
     </div>
   </div>
+</div>
 
   
   </div>
