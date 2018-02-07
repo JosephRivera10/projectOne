@@ -1,34 +1,55 @@
 
 .body {
-/*	background-image: url("../images/food-background.jpg");
-    background-size: cover;*/
-    background-color: #fff;
+    background-color: #fff8e1;
+     font-family: 'Pacifico';
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
-#logo {
-	font-weight: bold;
-	padding: 10px;
-	margin-left: 35px;
-	font-size: 40px;
+main {
+  flex: 1 0 auto;
+}
+.searchField {
+		background-image: url("../images/background.jpg");
+	height: 500px;
+}
+#input {
+	margin-top: 0px;
+	padding-top: 60px;
 }
 #ingredientForm {
-	margin-right: 20px;
+	/*margin-left: 40%;
+	margin-right: 50%*/;
+}
+#ingredients {
+	opacity: 0.75;
 }
 #enterIngredients {
 	font-size: 35px;
 	font-weight: bold;
-	  /*text-shadow:
+	  text-shadow:
    -1px -1px 0 #fff,  
     1px -1px 0 #fff,
     -1px 1px 0 #fff,
-     1px 1px 0 #fff;*/
+     1px 1px 0 #fff;
      letter-spacing: 2px;
+     margin-top: 40px;
+}
+#search {
+	/*margin-left: 40%;
+	margin-right: 50%*/
 }
 #selectors {
-	margin-left: 70px;
-}
+/*	margin-left: 40%;
+*/}
 #selector {
 	font-size: 25px;
 	color: #ef6c00;
+	text-shadow: 
+	-1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+     1px 1px 0 #fff;
 }
 #card {
 	margin: 4%;

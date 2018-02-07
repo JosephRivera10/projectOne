@@ -97,8 +97,8 @@ $(".chip").each(function () {
       var image = $("<img>").attr("id", "image");
       image.attr("src", results[i].recipe.image);
       image.addClass("activator");
-      image.width(280);
-      image.height(180);
+      image.width(600);
+      image.height(415);
 
       var newCardContent = $("<div>");
       newCardContent.addClass("card-content");
@@ -134,7 +134,7 @@ $(".chip").each(function () {
       hideIngredients.addClass("material-icons");
       hideIngredients.addClass("right");
       hideIngredients.addClass("orange-text text-darken-4")
-      hideIngredients.text("...");
+      hideIngredients.text("X");
 
       for (var j = 0; j < results[i].recipe.ingredientLines.length; j++) {
       //         $("#recipeIngredientsDiv"+k).append('<li>' + results[i].recipe.ingredientLines[j] + '</li>');
