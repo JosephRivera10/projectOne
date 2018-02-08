@@ -5,7 +5,7 @@
 }
 
 .body {
-    background-color: #ffebee;
+    background-color: #ffcdd2;
      font-family: 'Pacifico';
     display: flex;
     min-height: 100vh;
@@ -57,10 +57,13 @@ main {
     padding-right: 0px;
     height: 370px;
 }
-#span {
+#spanIngredients {
 	font-weight: bold;
 	line-height: 1.6;
 	font-family: sans-serif;
+}
+#list {
+	list-style-type: circle !important;
 }
 #i {
 	font-weight: bold;

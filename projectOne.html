@@ -31,22 +31,19 @@
       </div>
     </nav>
 
-<!-- <div class="authContainer">
+  <div class="authContainer">
     <input id="txtEmail" type="email" placeholder="Email">
     <input id="txtPassword" type="password" placeholder="Password">
     <button id="btnLogin" class="btn btn-action">Log In</button>
     <button id="btnSignUp" class="btn btn-secondary">Sign Up</button>
     <button id="btnLogout" class="btn btn-action hide">Log Out</button>
-  </div> -->
-
-
-
+  </div>
 
 	<div class="searchField">
   <div class="row">
     <form id="ingredientForm" class="col s12 m8 offset-m2" >
       <div id="input" class="input-field">
-        <input class="white" placeholder="Ingredients" id="ingredients" type="text" class="validate">
+        <input class="white validate" placeholder="Ingredients" id="ingredients" type="text">
         <label id="enterIngredients" class="teal-text text-darken-4" for="ingredients">Enter What Ingredients You Want To Use</label>
         <button id="add" class="btn red" type="submit" name="action"><i class="material-icons">add</i>
         </button>    
@@ -66,12 +63,14 @@
       <a class="btn dropdown-button" href="#!" data-activates="dropdown2">Diet Restrictions<i class="material-icons right">arrow_drop_down</i></a>
     </form> -->
       <form id="selectors" class="col s12 m8 offset-m2" action="#">
-      <input type="checkbox" id="test1" value="peanut-free"/>
-      <label class="red-text" id="selector" for="test1">Peanut Free</label>
+      <input type="checkbox" id="test1" value="paleo"/>
+      <label class="red-text" id="selector" for="test1">Paleo</label>
       <input type="checkbox" id="test2" value="vegetarian"/>
       <label class="red-text" id="selector" for="test2">Vegetarian</label>
       <input type="checkbox" id="test3" value="low-fat"/>
       <label class="red-text" id="selector" for="test3">Low Fat</label>
+      <input type="checkbox" id="test4" value="gluten-free"/>
+      <label class="red-text" id="selector" for="test4">Gluten Free</label>
       </form>
   </div>  
   <div class="row">
@@ -121,9 +120,10 @@
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
     <script rel="stylesheet" type="text/javascript" src="assets/javascript/app.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCitL6WLGCbBt_YLF_-L1pmIFgzoo4zh4Q&libraries=places&callback=initMap" async defer></script>
+
 
 
 </html>

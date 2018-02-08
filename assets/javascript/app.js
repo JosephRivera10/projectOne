@@ -1,4 +1,117 @@
-  
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyACIqiC8tclKuUiaLB6cawQdHzYZCqn16E",
+  authDomain: "chefnow-80b6b.firebaseapp.com",
+  databaseURL: "https://chefnow-80b6b.firebaseio.com",
+  projectId: "chefnow-80b6b",
+  storageBucket: "",
+  messagingSenderId: "224671396675"
+};
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
+var userEmail="";
+
+document.addEventListener("DOMContentLoaded",function(event){
+
+    (function() {
+
+      // // Initialize Firebase
+      //   var config = {
+      //   apiKey: "AIzaSyATkmHnsV-NtL1Ug0S8T28olh_TXJvHyDg",
+      //   authDomain: "chefnow-d3971.firebaseapp.com",
+      //   databaseURL: "https://chefnow-d3971.firebaseio.com",
+      //   projectId: "chefnow-d3971",
+      //   storageBucket: "chefnow-d3971.appspot.com",
+      //   messagingSenderId: "407427873927"
+      // };
+      // firebase.initializeApp(config);
+      //
+      // var database = firebase.database();
+
+      //Get elements
+      const txtEmail = document.getElementById("txtEmail");
+      const txtPassword = document.getElementById("txtPassword");
+      const btnLogin = document.getElementById("btnLogin");
+      const btnSignUp = document.getElementById("btnSignUp");
+      const btnLogout = document.getElementById("btnLogout");
+
+    //EVENTS BELOW USE THE FOLLOWING (FIREBASE AUTHENTICATION?) FUNCTIONS
+      // const auth = firebase.auth();
+      // auth.signInWithEmailAndPassword(email, pass);
+      // auth.createUserWithEmailAndPassword(email, pass);
+      // auth.onAuthStateChanged(firebaseUser => { });
+
+      //Add login event
+      btnLogin.addEventListener('click', e => {
+        //Get  email and pass
+        const email = txtEmail.value;
+        const pass = txtPassword.value;
+        const auth = firebase.auth();
+        //Sign in
+        const promise = auth.signInWithEmailAndPassword(email, pass);
+        promise.catch(e => console.log(e.message));
+      });
+
+      //Add signup event
+      btnSignUp.addEventListener('click', e => {
+        //Get  email and pass
+        //TO DO: CHECK FOR REAL EMAIL
+        const email = txtEmail.value;
+        const pass = txtPassword.value;
+        const auth = firebase.auth();
+        //Sign in
+        const promise = auth.createUserWithEmailAndPassword(email, pass);
+        promise.catch(e => console.log(e.message));
+      });
+
+      btnLogout.addEventListener('click', e => {
+        firebase.auth().signOut();
+      });
+
+      //Add a realtime listener
+      firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+          console.log(firebaseUser);
+          btnLogout.classList.remove("hide");
+        } else {
+          console.log('not logged in');
+          btnLogout.classList.add("hide");
+        }
+      });
+
+    }());
+});  
+
+$(document).on("click", '#saveLikedRecipe', function(event) {
+  event.preventDefault();
+  console.log($(this).parent().parent());
+  console.log($(this).parent());
+  var likedRecipeTitle = $(this).parent().parent()[0].childNodes[1].childNodes[0].childNodes[0].data;
+  var likedRecipeImageLink = $(this).parent().parent()[0].childNodes[0].childNodes[0].currentSrc;
+  var likedRecipeLink = $(this).parent().parent()[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0].href;
+  var likedRecipeIngredients = [];
+  for (let index = 0; index < ($(this).parent().parent()[0].children[2].childNodes).length; index++) {
+    likedRecipeIngredients[index]=$(this).parent().parent()[0].children[2].childNodes[index].innerText;
+  };
+  console.log(likedRecipeTitle, likedRecipeImageLink,likedRecipeLink, likedRecipeIngredients);
+  userEmail = firebase.auth().currentUser.email;
+  // // var userName = userEmail.split("@")[0];
+  // console.log(userName);
+  // //TODO: Look for and Delete any existing database items under userEmail
+  // // database.ref().child(emailID).remove(userEmail);
+  var userFavRecipe = {
+     emailID: userEmail,
+     recipeName: likedRecipeTitle,
+     recipeImage: likedRecipeImageLink,
+     recipeLink: likedRecipeLink,
+     recipeIngredients: likedRecipeIngredients
+  };
+  // Save ingredientslist  to the firebase database
+  database.ref().push(userFavRecipe);
+});
+
 $("#map").hide();
 $("#hideMap").hide();
 var queryURL;
@@ -31,32 +144,33 @@ $(".chip").each(function () {
   ingredientsSearchArray.push($(this).data("name"));
 });
     
+    var gluten = $("#test4:checked").val();
     var lowFat = $("#test3:checked").val();
     var vegetarian = $("#test2:checked").val();
-    var peanut = $("#test1:checked").val();
-    if(peanut == undefined && vegetarian == undefined && lowFat == undefined) {
+    var paleo = $("#test1:checked").val();
+    if(paleo == undefined && vegetarian == undefined && lowFat == undefined && gluten == undefined) {
       queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10";
       runsearch(queryURL);   
     }
-    else if (vegetarian == "vegetarian" && peanut == "peanut-free" && lowFat == "low-fat") {
-      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + peanut + "&health=" + vegetarian + "&diet=" + lowFat + "";
+    else if (vegetarian == "vegetarian" && paleo == "paleo" && lowFat == "low-fat") {
+      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + paleo + "&health=" + vegetarian + "&diet=" + lowFat + "";
       runsearch(queryURL);
     }
-    else if (vegetarian == "vegetarian" && peanut == "peanut-free") {
-      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + vegetarian + "&health=" + peanut + "";
+    else if (vegetarian == "vegetarian" && paleo == "paleo") {
+      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + vegetarian + "&health=" + paleo + "";
       runsearch(queryURL);
     }
     else if (vegetarian == "vegetarian" && lowFat == "low-fat") {
       queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + vegetarian + "&diet=" + lowFat + "";
       runsearch(queryURL);
     }
-    else if (peanut == "peanut-free" && lowFat == "low-fat") {
-      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + peanut + "&diet=" + lowFat + "";
+    else if (paleo == "paleo" && lowFat == "low-fat") {
+      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + paleo + "&diet=" + lowFat + "";
       runsearch(queryURL);
     }
-    else if (peanut == "peanut-free") {
+    else if (paleo == "paleo") {
       //run peanut query
-       queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + peanut + "";
+       queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + paleo + "";
       runsearch(queryURL);
     }
     else if (vegetarian == "vegetarian") {
@@ -85,7 +199,7 @@ $(".chip").each(function () {
       // var image = "";
       // var recipeTitle = ""; 
       // var link = "";
-      var newCard = $("<div>").attr("id", "card");
+      var newCard = $("<div>").attr("id", "card" +i);
       newCard.addClass("card");
       newCard.addClass("small");
       newCard.addClass("col s12 m5");
@@ -137,7 +251,7 @@ $(".chip").each(function () {
       
       var revealCard = $("<div>");
       revealCard.addClass("card-reveal");
-      revealCard.addClass("teal lighten-2");
+      revealCard.addClass("white");
 
 
       var hideIngredients = $("<i>").attr("id", "i2");
@@ -147,20 +261,27 @@ $(".chip").each(function () {
       hideIngredients.addClass("red-text")
       hideIngredients.text("close");
 
+
+    var list = $("<ul>").attr("id", "list");
+
       for (var j = 0; j < results[i].recipe.ingredientLines.length; j++) {
       //         $("#recipeIngredientsDiv"+k).append('<li>' + results[i].recipe.ingredientLines[j] + '</li>');
-      var newLine = $("<p>");
+      // var newLine = $("<p>");
 
-      var ingredientList = $("<span>").attr("id", "span");
+      var ingredientList = $("<li>").attr("id", "spanIngredients");
       ingredientList.text(results[i].recipe.ingredientLines[j]);
       ingredientList.addClass("card-title");
       // ingredientList.addClass("activator");
       ingredientList.addClass("teal-text");
       ingredientList.addClass("text-darken-3");
     
-    $(revealCard).append(newLine);
-    newLine.append(ingredientList);
+    // $(revealCard).append(newLine);
+    // newLine.append(ingredientList);
+    list.append(ingredientList);
     }
+
+    // var list = $("<ul>").attr("id", "list");
+    revealCard.append(list);
 
     // var google = $("<div>").attr("id", "map");
 
