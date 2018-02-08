@@ -1,4 +1,6 @@
   
+$("#map").hide();
+$("#hideMap").hide();
 var queryURL;
 
 //adds ingredients to ingredient field as a new chip
@@ -87,6 +89,7 @@ $(".chip").each(function () {
       newCard.addClass("card");
       newCard.addClass("small");
       newCard.addClass("col s12 m5");
+      newCard.addClass("z-depth-4");
 
       var cardDesign = $("<div>");
       cardDesign.addClass("card-image");
@@ -96,8 +99,8 @@ $(".chip").each(function () {
 
       var image = $("<img>").attr("id", "image");
       image.attr("src", results[i].recipe.image);
-      image.addClass("activator");
-      image.width(600);
+      // image.addClass("activator");
+      image.width(623.625);
       image.height(415);
 
       var newCardContent = $("<div>");
@@ -108,19 +111,26 @@ $(".chip").each(function () {
       recipeTitle.addClass("card-title");
       recipeTitle.addClass("activator");
       recipeTitle.addClass("teal-text");
-      recipeTitle.addClass("text-darken-3");
+      recipeTitle.addClass("text-darken-4");
 
       var showIngredients = $("<i>").attr("id", "i");
       showIngredients.addClass("material-icons");
       showIngredients.addClass("right");
-      showIngredients.addClass("teal-text text-darken-3")
-      showIngredients.text("...")
+      showIngredients.addClass("activator");
+      showIngredients.addClass("teal-text text-darken-4")
+      showIngredients.text("more_vert")
 
+      var recipeLikeButton = $("<i>").attr("id", "saveLikedRecipe");
+      recipeLikeButton.addClass("material-icons");
+      recipeLikeButton.addClass("right");
+      recipeLikeButton.addClass("blue-text")
+      recipeLikeButton.text("thumb_up")
+      
       var space = $("<p>");
 
       var link = $("<a>").attr("id", "a");
       link.attr("href", results[i].recipe.url);
-      link.addClass("orange-text text-darken-3");
+      link.addClass("red-text text-lighten-1");
       link.text("Recipe Link");
       // link.target("_blank");
 
@@ -133,8 +143,9 @@ $(".chip").each(function () {
       var hideIngredients = $("<i>").attr("id", "i2");
       hideIngredients.addClass("material-icons");
       hideIngredients.addClass("right");
-      hideIngredients.addClass("orange-text text-darken-4")
-      hideIngredients.text("X");
+      hideIngredients.addClass("activator");
+      hideIngredients.addClass("red-text")
+      hideIngredients.text("close");
 
       for (var j = 0; j < results[i].recipe.ingredientLines.length; j++) {
       //         $("#recipeIngredientsDiv"+k).append('<li>' + results[i].recipe.ingredientLines[j] + '</li>');
@@ -143,7 +154,7 @@ $(".chip").each(function () {
       var ingredientList = $("<span>").attr("id", "span");
       ingredientList.text(results[i].recipe.ingredientLines[j]);
       ingredientList.addClass("card-title");
-      ingredientList.addClass("activator");
+      // ingredientList.addClass("activator");
       ingredientList.addClass("teal-text");
       ingredientList.addClass("text-darken-3");
     
@@ -151,7 +162,7 @@ $(".chip").each(function () {
     newLine.append(ingredientList);
     }
 
-
+    // var google = $("<div>").attr("id", "map");
 
       $("#cardArea").append(newCard);
       newCard.append(cardDesign);
@@ -161,12 +172,76 @@ $(".chip").each(function () {
       recipeTitle.append(space);
       space.append(link);
       space.append(showIngredients);
+      showIngredients.append(recipeLikeButton);
       newCard.append(revealCard);
       // revealCard.append(newLine);
       // newLine.append(ingredientList);
       ingredientList.append(hideIngredients);
+      // revealCard.append(google);
     }
 
     });
 
   };
+/////null child error
+//get this to fire after the code above
+//or creat div and append somewhere in the code below
+      $("#googleMap").on("click", function (){
+      $("#map").show();
+      $("#hideMap").show();
+       navigator.geolocation.getCurrentPosition(function(position){ 
+  var lat = position.coords.latitude;
+  var lng = position.coords.longitude;
+  console.log(lat);
+  console.log(lng);
+  initMap(lat, lng);
+});
+      })
+      $("#hideMap").on("click", function () {
+        $("#map").hide();
+        $("#hideMap").hide();
+      })
+
+
+      var map;
+      var infowindow;
+
+      function initMap(lat, lng) {
+        var city = {lat: parseFloat(lat), lng: parseFloat(lng)};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: city,
+          zoom: 15
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: city,
+          radius: 600,
+          type: ['grocery_or_supermarket']
+        }, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+    
+    

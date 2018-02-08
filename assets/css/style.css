@@ -1,6 +1,11 @@
 
+#map {
+	height: 400px;
+	width: 623.625px;
+}
+
 .body {
-    background-color: #fff8e1;
+    background-color: #ffebee;
      font-family: 'Pacifico';
     display: flex;
     min-height: 100vh;
@@ -15,19 +20,21 @@ main {
 }
 #input {
 	margin-top: 0px;
-	padding-top: 60px;
+	padding-top: 70px;
+	display: flex;
 }
-#ingredientForm {
-	/*margin-left: 40%;
-	margin-right: 50%*/;
+
+#add {
+	height: 46px;
 }
 #ingredients {
 	opacity: 0.75;
+	flex: 1;
 }
 #enterIngredients {
 	font-size: 35px;
 	font-weight: bold;
-	  text-shadow:
+	text-shadow:
    -1px -1px 0 #fff,  
     1px -1px 0 #fff,
     -1px 1px 0 #fff,
@@ -35,32 +42,25 @@ main {
      letter-spacing: 2px;
      margin-top: 40px;
 }
-#search {
-	/*margin-left: 40%;
-	margin-right: 50%*/
-}
-#selectors {
-/*	margin-left: 40%;
-*/}
 #selector {
 	font-size: 25px;
-	color: #ef6c00;
+	padding-left: 30px;
 	text-shadow: 
-	-1px -1px 0 #fff,  
-    1px -1px 0 #fff,
-    -1px 1px 0 #fff,
-     1px 1px 0 #fff;
+	-1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }
 #card {
 	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
 }
-/*#image {
-	border-style: solid;
-	border-width: 3px;
-	border-color: #00695c;	
-}*/
 #span {
 	font-weight: bold;
+	line-height: 1.6;
+	font-family: sans-serif;
 }
 #i {
 	font-weight: bold;
@@ -70,5 +70,15 @@ main {
 }
 #i2 {
 	font-weight: bold;
+
+}
+#googleMap {
+	margin-bottom: 15px;
+	font-family: sans-serif;
+
+}
+#hideMap {
+	display: inline;
+	margin-bottom: 15px;
 
 }
