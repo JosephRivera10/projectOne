@@ -86,14 +86,14 @@ document.addEventListener("DOMContentLoaded",function(event){
 
 $(document).on("click", '#saveLikedRecipe', function(event) {
   event.preventDefault();
-  console.log($(this).parent().parent());
-  console.log($(this).parent());
-  var likedRecipeTitle = $(this).parent().parent()[0].childNodes[1].childNodes[0].childNodes[0].data;
-  var likedRecipeImageLink = $(this).parent().parent()[0].childNodes[0].childNodes[0].currentSrc;
-  var likedRecipeLink = $(this).parent().parent()[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0].href;
+  console.log($(this).parent().parent().parent().parent().parent());
+  var whichCardDiv = $(this).parent().parent().parent().parent().parent();
+  var likedRecipeTitle = whichCardDiv[0].childNodes[1].childNodes[0].firstChild.data;
+  var likedRecipeImageLink = whichCardDiv[0].childNodes[0].childNodes[0].currentSrc;
+  var likedRecipeLink = whichCardDiv[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0].href;
   var likedRecipeIngredients = [];
-  for (let index = 0; index < ($(this).parent().parent()[0].children[2].childNodes).length; index++) {
-    likedRecipeIngredients[index]=$(this).parent().parent()[0].children[2].childNodes[index].innerText;
+  for (let index = 0; index < (whichCardDiv[0].children[2].childNodes[0].children.length); index++) {
+    likedRecipeIngredients[index]=whichCardDiv[0].children[2].childNodes[0].children[index].innerText;
   };
   console.log(likedRecipeTitle, likedRecipeImageLink,likedRecipeLink, likedRecipeIngredients);
   userEmail = firebase.auth().currentUser.email;
@@ -111,6 +111,35 @@ $(document).on("click", '#saveLikedRecipe', function(event) {
   // Save ingredientslist  to the firebase database
   database.ref().push(userFavRecipe);
 });
+// $(document).on("click", '#saveLikedRecipe', function(event) {
+//   event.preventDefault();
+//   console.log($(this).parent().parent());
+//   console.log($(this).parent());
+//   var likedRecipeTitle = $(this).parent().parent()[0].childNodes[1].childNodes[0].childNodes[0].data;
+//   var likedRecipeImageLink = $(this).parent().parent()[0].childNodes[0].childNodes[0].currentSrc;
+//   var likedRecipeLink = $(this).parent().parent()[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0].href;
+//   var likedRecipeIngredients = [];
+//   for (let index = 0; index < ($(this).parent().parent()[0].children[2].childNodes).length; index++) {
+//     likedRecipeIngredients[index]=$(this).parent().parent()[0].children[2].childNodes[index].innerText;
+//   };
+//   console.log(likedRecipeTitle, likedRecipeImageLink,likedRecipeLink, likedRecipeIngredients);
+//   userEmail = firebase.auth().currentUser.email;
+//   // // var userName = userEmail.split("@")[0];
+//   // console.log(userName);
+//   // //TODO: Look for and Delete any existing database items under userEmail
+//   // // database.ref().child(emailID).remove(userEmail);
+//   var userFavRecipe = {
+//      emailID: userEmail,
+//      recipeName: likedRecipeTitle,
+//      recipeImage: likedRecipeImageLink,
+//      recipeLink: likedRecipeLink,
+//      recipeIngredients: likedRecipeIngredients
+//   };
+//   // Save ingredientslist  to the firebase database
+//   database.ref().push(userFavRecipe);
+// });
+
+$(".dropdown-button").dropdown({ hover: false });
 
 $("#map").hide();
 $("#hideMap").hide();
@@ -144,33 +173,33 @@ $(".chip").each(function () {
   ingredientsSearchArray.push($(this).data("name"));
 });
     
-    var gluten = $("#test4:checked").val();
-    var lowFat = $("#test3:checked").val();
+    // var gluten = $("#test4:checked").val();
+   var lowFat = $("#test3:checked").val();
     var vegetarian = $("#test2:checked").val();
-    var paleo = $("#test1:checked").val();
-    if(paleo == undefined && vegetarian == undefined && lowFat == undefined && gluten == undefined) {
+    var peanut = $("#test1:checked").val();
+    if(peanut == undefined && vegetarian == undefined && lowFat == undefined) {
       queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10";
       runsearch(queryURL);   
     }
-    else if (vegetarian == "vegetarian" && paleo == "paleo" && lowFat == "low-fat") {
-      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + paleo + "&health=" + vegetarian + "&diet=" + lowFat + "";
+    else if (vegetarian == "vegetarian" && peanut == "peanut-free" && lowFat == "low-fat") {
+      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + peanut + "&health=" + vegetarian + "&diet=" + lowFat + "";
       runsearch(queryURL);
     }
-    else if (vegetarian == "vegetarian" && paleo == "paleo") {
-      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + vegetarian + "&health=" + paleo + "";
+    else if (vegetarian == "vegetarian" && peanut == "peanut-free") {
+      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + vegetarian + "&health=" + peanut + "";
       runsearch(queryURL);
     }
     else if (vegetarian == "vegetarian" && lowFat == "low-fat") {
       queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + vegetarian + "&diet=" + lowFat + "";
       runsearch(queryURL);
     }
-    else if (paleo == "paleo" && lowFat == "low-fat") {
-      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + paleo + "&diet=" + lowFat + "";
+    else if (peanut == "peanut-free" && lowFat == "low-fat") {
+      queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + peanut + "&diet=" + lowFat + "";
       runsearch(queryURL);
     }
-    else if (paleo == "paleo") {
+    else if (peanut == "peanut-free") {
       //run peanut query
-       queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + paleo + "";
+       queryURL = "https://api.edamam.com/search?q=" + ingredientsSearchArray + "&app_id=5148c2dc&app_key=1a2daaf08f5a479ca7f99584442c2dbd&from=0&to=10&health=" + peanut + "";
       runsearch(queryURL);
     }
     else if (vegetarian == "vegetarian") {

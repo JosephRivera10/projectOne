@@ -3,7 +3,25 @@
 	height: 400px;
 	width: 623.625px;
 }
+#nav {
+	height: 67px;
+}
 
+#btnLogin {
+	height: 64px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#btnSignUp {
+	height: 64px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#btnLogout {
+	height: 64px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
 .body {
     background-color: #ffcdd2;
      font-family: 'Pacifico';
@@ -51,20 +69,75 @@ main {
     -1px 1px 0 #000,
      1px 1px 0 #000;
 }
-#card {
+#card0 {
 	margin: 4%;
 	padding-left: 0px;
     padding-right: 0px;
     height: 370px;
 }
+#card1 {
+	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card2 {
+	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card3 {
+	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card4 {
+	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card5 {
+	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card6 {
+	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card7 {
+	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card8 {
+	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card9 {
+	margin: 4%;
+	padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+
 #spanIngredients {
 	font-weight: bold;
 	line-height: 1.6;
 	font-family: sans-serif;
 }
-#list {
+/*#list {
 	list-style-type: circle !important;
-}
+}*/
 #i {
 	font-weight: bold;
 }

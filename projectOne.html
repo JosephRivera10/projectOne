@@ -14,19 +14,21 @@
 </head>
 <body class = "body">
   <main>
-  <nav class="white">
+  <nav id="nav" class="white">
     <div class="nav-wrapper">
+                  
+        
       <a href="#" class="brand-logo center red-text">Chef Now</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse black-text"><i class=" black-text material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li class="red login"><a href="#!">Login</a></li>
-              <li class="red signUp"><a href="#!">Sign up</a></li>
-              <li class="red logOut"><a href="#!">Log out</a></li>
+              <li><button id="btnLogin" class="red login btn btn-action">Log In</button></li>
+              <li><button id="btnSignUp" class="red signUp btn btn-secondary">Sign Up</button></li>
+              <li><button id="btnLogout" class="red logOut btn btn-action hide">Log Out</button></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-              <li class="red login"><a href="#!">Login</a></li>
-              <li class="red signUp"><a href="#!">Sign up</a></li>
-              <li class="red logOut"><a href="#!">Log out</a></li>
+              <li><button id="btnLogin" class="red login btn btn-action">Log In</button></li>
+              <li><button id="btnSignUp" class="red signUp btn btn-secondary">Sign Up</button></li>
+              <li><button id="btnLogout" class="red logOut btn btn-action hide">Log Out</button></li>
             </ul>
       </div>
     </nav>
@@ -34,9 +36,9 @@
   <div class="authContainer">
     <input id="txtEmail" type="email" placeholder="Email">
     <input id="txtPassword" type="password" placeholder="Password">
-    <button id="btnLogin" class="btn btn-action">Log In</button>
+<!--     <button id="btnLogin" class="btn btn-action">Log In</button>
     <button id="btnSignUp" class="btn btn-secondary">Sign Up</button>
-    <button id="btnLogout" class="btn btn-action hide">Log Out</button>
+    <button id="btnLogout" class="btn btn-action hide">Log Out</button> -->
   </div>
 
 	<div class="searchField">
@@ -51,26 +53,13 @@
     </form>
   </div>
   <div class="row">
-   <!--  <form id="selectors" class="col s12 m8 offset-m2" action="#">
-      <ul id="dropdown2" class="dropdown-content">
-        <li><input type="checkbox" id="test1" value="peanut-free"/>
-          <label id="selector" for="test1">Peanut Free</label></li>
-        <li><input type="checkbox" id="test2" value="vegetarian"/>
-          <label id="selector" for="test2">Vegetarian</label></li>
-        <li><input type="checkbox" id="test3" value="low-fat"/>
-          <label id="selector" for="test3">Low Fat</label></li>
-      </ul>
-      <a class="btn dropdown-button" href="#!" data-activates="dropdown2">Diet Restrictions<i class="material-icons right">arrow_drop_down</i></a>
-    </form> -->
       <form id="selectors" class="col s12 m8 offset-m2" action="#">
-      <input type="checkbox" id="test1" value="paleo"/>
-      <label class="red-text" id="selector" for="test1">Paleo</label>
+      <input type="checkbox" id="test1" value="peanut-free"/>
+      <label class="red-text" id="selector" for="test1">Peanut Free</label>
       <input type="checkbox" id="test2" value="vegetarian"/>
       <label class="red-text" id="selector" for="test2">Vegetarian</label>
       <input type="checkbox" id="test3" value="low-fat"/>
       <label class="red-text" id="selector" for="test3">Low Fat</label>
-      <input type="checkbox" id="test4" value="gluten-free"/>
-      <label class="red-text" id="selector" for="test4">Gluten Free</label>
       </form>
   </div>  
   <div class="row">
@@ -103,11 +92,7 @@
   </div>
 </div>
   
-  
-
 </main>
-
-
 
   <footer class="page-footer red">
   <div class="footer-copyright">
