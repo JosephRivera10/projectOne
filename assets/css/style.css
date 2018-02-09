@@ -23,25 +23,25 @@ main {
 	height: 64px;
 	margin-right: 5px;
 	margin-left: 5px;
-	font-family: sans-serif;
+font-family: 'Nunito', sans-serif;
 }
 #btnSignUp {
 	height: 64px;
 	margin-right: 5px;
 	margin-left: 5px;
-	font-family: sans-serif;
+font-family: 'Nunito', sans-serif;
 }
 #btnLogout {
 	height: 64px;
 	margin-right: 5px;
 	margin-left: 5px;
-	font-family: sans-serif;
+font-family: 'Nunito', sans-serif;
 }
 #txtEmail {
-	font-family: sans-serif;
+font-family: 'Nunito', sans-serif;
 }
 #txtPasswork {
-	font-family: sans-serif;
+font-family: 'Nunito', sans-serif;
 }
 
 .searchField {
@@ -64,7 +64,7 @@ main {
 	display: flex;
 }
 #ingredients {
-	font-family: sans-serif;
+font-family: 'Nunito', sans-serif;
 }
 #enterIngredients {
 	font-size: 35px;
@@ -95,10 +95,10 @@ main {
      1px 1px 0 #000;
 }
 .chip {
-	font-family: sans-serif;
+font-family: 'Nunito', sans-serif;
 }
 #search {
-	font-family: sans-serif;
+font-family: 'Nunito', sans-serif;
 }
 #card0 {
 	margin: 4%;
@@ -166,13 +166,11 @@ main {
 #revealCard {
 	background-image: url("../images/notecard.jpg");
 	background-size: cover;
-/*	background-attachment: fixed;
-*/}
+}
 #spanIngredients {
 	font-weight: bold;
 	line-height: 1.6;
-	font-family: sans-serif;
-	opacity: 1;
+font-family: 'Nunito', sans-serif;
 }
 
 #i {
@@ -202,7 +200,7 @@ main {
 }
 #googleMap {
 	margin-bottom: 15px;
-	font-family: sans-serif;
+font-family: 'Nunito', sans-serif;
 	
 }
 #hideMap {
