@@ -17,18 +17,7 @@ document.addEventListener("DOMContentLoaded",function(event){
 
     (function() {
 
-      // // Initialize Firebase
-      //   var config = {
-      //   apiKey: "AIzaSyATkmHnsV-NtL1Ug0S8T28olh_TXJvHyDg",
-      //   authDomain: "chefnow-d3971.firebaseapp.com",
-      //   databaseURL: "https://chefnow-d3971.firebaseio.com",
-      //   projectId: "chefnow-d3971",
-      //   storageBucket: "chefnow-d3971.appspot.com",
-      //   messagingSenderId: "407427873927"
-      // };
-      // firebase.initializeApp(config);
-      //
-      // var database = firebase.database();
+     
 
       //Get elements
       const txtEmail = document.getElementById("txtEmail");
@@ -97,10 +86,7 @@ $(document).on("click", '#saveLikedRecipe', function(event) {
   };
   console.log(likedRecipeTitle, likedRecipeImageLink,likedRecipeLink, likedRecipeIngredients);
   userEmail = firebase.auth().currentUser.email;
-  // // var userName = userEmail.split("@")[0];
-  // console.log(userName);
-  // //TODO: Look for and Delete any existing database items under userEmail
-  // // database.ref().child(emailID).remove(userEmail);
+
   var userFavRecipe = {
      emailID: userEmail,
      recipeName: likedRecipeTitle,
@@ -108,41 +94,33 @@ $(document).on("click", '#saveLikedRecipe', function(event) {
      recipeLink: likedRecipeLink,
      recipeIngredients: likedRecipeIngredients
   };
-  // Save ingredientslist  to the firebase database
   database.ref().push(userFavRecipe);
 });
-// $(document).on("click", '#saveLikedRecipe', function(event) {
-//   event.preventDefault();
-//   console.log($(this).parent().parent());
-//   console.log($(this).parent());
-//   var likedRecipeTitle = $(this).parent().parent()[0].childNodes[1].childNodes[0].childNodes[0].data;
-//   var likedRecipeImageLink = $(this).parent().parent()[0].childNodes[0].childNodes[0].currentSrc;
-//   var likedRecipeLink = $(this).parent().parent()[0].childNodes[1].childNodes[0].childNodes[1].childNodes[0].href;
-//   var likedRecipeIngredients = [];
-//   for (let index = 0; index < ($(this).parent().parent()[0].children[2].childNodes).length; index++) {
-//     likedRecipeIngredients[index]=$(this).parent().parent()[0].children[2].childNodes[index].innerText;
-//   };
-//   console.log(likedRecipeTitle, likedRecipeImageLink,likedRecipeLink, likedRecipeIngredients);
-//   userEmail = firebase.auth().currentUser.email;
-//   // // var userName = userEmail.split("@")[0];
-//   // console.log(userName);
-//   // //TODO: Look for and Delete any existing database items under userEmail
-//   // // database.ref().child(emailID).remove(userEmail);
-//   var userFavRecipe = {
-//      emailID: userEmail,
-//      recipeName: likedRecipeTitle,
-//      recipeImage: likedRecipeImageLink,
-//      recipeLink: likedRecipeLink,
-//      recipeIngredients: likedRecipeIngredients
-//   };
-//   // Save ingredientslist  to the firebase database
-//   database.ref().push(userFavRecipe);
-// });
 
-$(".dropdown-button").dropdown({ hover: false });
+$(".authContainer").hide();
+
+
+$("#btnLogin").on("click", function(){
+  $(".authContainer").fadeToggle( "slow", "linear" );
+
+});
+$("#btnSignUp").on("click", function(){
+  $(".authContainer").fadeToggle( "slow", "linear" );
+});
+
 
 $("#map").hide();
 $("#hideMap").hide();
+
+// $(window).scroll(function(){
+//     if ($(window).scrollTop() >= 567) {
+//        $('.searchField').addClass('sticky');
+//     }
+//     else {
+//        $('.searchField').removeClass('sticky');
+//     }
+// });
+
 var queryURL;
 
 //adds ingredients to ingredient field as a new chip
@@ -157,7 +135,7 @@ var queryURL;
     
     var newI = $("<i>");
     newI.addClass("close material-icons");
-    newI.text("X")
+    newI.text("close")
     
     $("#ingredientField").append(newDiv);
     newDiv.append(newI);
@@ -246,13 +224,14 @@ $(".chip").each(function () {
       image.width(623.625);
       image.height(415);
 
-      var newCardContent = $("<div>");
+      var newCardContent = $("<div>").attr("id", "newCardContent");
       newCardContent.addClass("card-content");
+      newCardContent.addClass("blue lighten-5")
 
       var recipeTitle = $("<span>").attr("id", "span");
       recipeTitle.text(results[i].recipe.label);
       recipeTitle.addClass("card-title");
-      recipeTitle.addClass("activator");
+      // recipeTitle.addClass("activator");
       recipeTitle.addClass("teal-text");
       recipeTitle.addClass("text-darken-4");
 
@@ -266,7 +245,7 @@ $(".chip").each(function () {
       var recipeLikeButton = $("<i>").attr("id", "saveLikedRecipe");
       recipeLikeButton.addClass("material-icons");
       recipeLikeButton.addClass("right");
-      recipeLikeButton.addClass("blue-text")
+      // recipeLikeButton.addClass("blue-text")
       recipeLikeButton.text("thumb_up")
       
       var space = $("<p>");
@@ -278,7 +257,7 @@ $(".chip").each(function () {
       // link.target("_blank");
 
       
-      var revealCard = $("<div>");
+      var revealCard = $("<div>").attr("id", "revealCard");
       revealCard.addClass("card-reveal");
       revealCard.addClass("white");
 
@@ -292,6 +271,7 @@ $(".chip").each(function () {
 
 
     var list = $("<ul>").attr("id", "list");
+
 
       for (var j = 0; j < results[i].recipe.ingredientLines.length; j++) {
       //         $("#recipeIngredientsDiv"+k).append('<li>' + results[i].recipe.ingredientLines[j] + '</li>');
@@ -368,7 +348,7 @@ $(".chip").each(function () {
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: city,
-          radius: 600,
+          radius: 700,
           type: ['grocery_or_supermarket']
         }, callback);
       }
@@ -394,4 +374,12 @@ $(".chip").each(function () {
         });
       }
     
-    
+          $('.modal').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      inDuration: 300, // Transition in duration
+      outDuration: 200, // Transition out duration
+      startingTop: '4%', // Starting top style attribute
+      endingTop: '10%', // Ending top style attribute
+    }
+  );

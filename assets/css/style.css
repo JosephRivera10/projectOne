@@ -1,7 +1,19 @@
 
+.body {
+    background-color: #white;
+     font-family: 'Pacifico';
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
 #map {
 	height: 400px;
-	width: 623.625px;
+	width: 800px;
+	margin-left: 25%
+	margin-right: 25%;
 }
 #nav {
 	height: 67px;
@@ -11,43 +23,48 @@
 	height: 64px;
 	margin-right: 5px;
 	margin-left: 5px;
+	font-family: sans-serif;
 }
 #btnSignUp {
 	height: 64px;
 	margin-right: 5px;
 	margin-left: 5px;
+	font-family: sans-serif;
 }
 #btnLogout {
 	height: 64px;
 	margin-right: 5px;
 	margin-left: 5px;
+	font-family: sans-serif;
 }
-.body {
-    background-color: #ffcdd2;
-     font-family: 'Pacifico';
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+#txtEmail {
+	font-family: sans-serif;
 }
-main {
-  flex: 1 0 auto;
+#txtPasswork {
+	font-family: sans-serif;
 }
+
 .searchField {
 		background-image: url("../images/background.jpg");
 	height: 500px;
+	background-size: cover;
+/*	background-repeat: no-repeat;
+*/	background-attachment: fixed
 }
+/*.sticky {
+  position: fixed;
+  height: 500px;
+	background-size: cover;
+	top: 0;
+ 
+}*/
 #input {
 	margin-top: 0px;
 	padding-top: 70px;
 	display: flex;
 }
-
-#add {
-	height: 46px;
-}
 #ingredients {
-	opacity: 0.75;
-	flex: 1;
+	font-family: sans-serif;
 }
 #enterIngredients {
 	font-size: 35px;
@@ -60,6 +77,14 @@ main {
      letter-spacing: 2px;
      margin-top: 40px;
 }
+#add {
+	height: 46px;
+}
+#ingredients {
+	opacity: 0.75;
+	flex: 1;
+}
+
 #selector {
 	font-size: 25px;
 	padding-left: 30px;
@@ -68,6 +93,12 @@ main {
     1px -1px 0 #000,
     -1px 1px 0 #000,
      1px 1px 0 #000;
+}
+.chip {
+	font-family: sans-serif;
+}
+#search {
+	font-family: sans-serif;
 }
 #card0 {
 	margin: 4%;
@@ -129,29 +160,50 @@ main {
     padding-right: 0px;
     height: 370px;
 }
-
+#newCardContent {
+	height: 147px;
+}
+#revealCard {
+	background-image: url("../images/notecard.jpg");
+	background-size: cover;
+/*	background-attachment: fixed;
+*/}
 #spanIngredients {
 	font-weight: bold;
 	line-height: 1.6;
 	font-family: sans-serif;
+	opacity: 1;
 }
-/*#list {
-	list-style-type: circle !important;
-}*/
+
 #i {
 	font-weight: bold;
 }
 #a {
 	font-weight: bold;
+	font-size: 16px;
 }
 #i2 {
 	font-weight: bold;
 
 }
+#saveLikedRecipe {
+	color: #004d40;
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+#saveLikedRecipe:hover {
+	color: red;
+}
+#saveLikedRecipe:visited {
+	color: black;
+	opacity: 0.25;
+}
 #googleMap {
 	margin-bottom: 15px;
 	font-family: sans-serif;
-
+	
 }
 #hideMap {
 	display: inline;
