@@ -10,6 +10,8 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 var userName="";
+
+//Firebase Authentication Code STARTS Here
 document.addEventListener("DOMContentLoaded",function(event){
     (function() {
       //Get elements
@@ -59,48 +61,31 @@ document.addEventListener("DOMContentLoaded",function(event){
       });
     }());
 }); 
-var databaseLocation = "https://console.firebase.google.com/project/chefnow-80b6b/database/chefnow-80b6b/data";
-function favRecipeExistsCallback(userName, likedRecipeTitle, exists) {
-  if (exists) {
-    // console.log("User " + userName + ("'s ") + likedRecipeTitle + " already exists in saved data!");
-  }
-}
-// Tests to see if userName has any data. 
-function checkIfFavRecipeExists(userName,userFavRecipe, likedRecipeTitle) {
-  // var usersRef = new firebase(databaseLocation);
-  console.log("userNAme");
-  console.log(userName);
-  console.log("likedRecipeTitle");
-  console.log(likedRecipeTitle);
-  console.log("checifFav function fired");
+//Firebase Authentication Code ENDS Here
+
+//Code to Add Favorite Items to the Firebase Database STARTS Here
+
+// Tests to check if user has already added the Recipe to the Database 
+function checkIfFavRecipeExistsAndAdd(userName,userFavRecipe, likedRecipeTitle) {
   database.ref().child(userName).once("value", function(snapshot) {
     var recipeAlreadyExists = false;
     console.log("snapshot  value");
     console.log(snapshot.val());
     var currentSnap = snapshot.val();
     for (var key in currentSnap) {
-      console.log("key")
-      console.log(key);
-      console.log("key");
-      console.log("snapshot[key]");
-      console.log(currentSnap[key].recipeName);
-      console.log("snapshot[key]");
       if (currentSnap[key].recipeName === likedRecipeTitle) {
         recipeAlreadyExists = true;
       }
-    
-  }
-  if (recipeAlreadyExists === false) {
-    var recipeRef = database.ref().child(userName);
-    recipeRef.push(userFavRecipe);
-    
-  } else {
-  // alert("This recipe already exists in yoru database, please pick a recipe that is not already in your database");
-}
-    // var exists = (snapshot.val() !== null);
-    // favRecipeExistsCallback(userName, likedRecipeTitle, exists);
+    }
+    if (recipeAlreadyExists === false) {
+      var recipeRef = database.ref().child(userName);
+      recipeRef.push(userFavRecipe);
+    } else {
+      console.log("Recipe already exists in the database; please pick another");
+    }
   });
 }
+
 $(document).on("click", '#saveLikedRecipe', function(event) {
   event.preventDefault();
   console.log($(this).parent().parent().parent().parent().parent());
@@ -115,8 +100,6 @@ $(document).on("click", '#saveLikedRecipe', function(event) {
   console.log(likedRecipeTitle, likedRecipeImageLink,likedRecipeLink, likedRecipeIngredients);
   userName = firebase.auth().currentUser.email.split("@")[0];
   console.log(userName);
-  // //TODO: Look for and Delete any existing database items under userName
-  // // database.ref().child(userName).remove();
   var userFavRecipe = {
      recipeName: likedRecipeTitle,
      recipeImage: likedRecipeImageLink,
@@ -124,52 +107,52 @@ $(document).on("click", '#saveLikedRecipe', function(event) {
      recipeIngredients: likedRecipeIngredients
   };
   // Save userFavRecipe to the firebase database if it does not exist already
-  checkIfFavRecipeExists(userName,userFavRecipe, likedRecipeTitle);
-  // var recipeRef = database.ref().child(userName);
-  // recipeRef.push(userFavRecipe);
+  checkIfFavRecipeExistsAndAdd(userName,userFavRecipe, likedRecipeTitle);
 });
 
-// database.ref().on("child_added", function(childSnapshot, prevChildKey){
+//Code to Add Favorite Items to the Firebase Database ENDS Here
 
-//   var recipeName = childSnapshot.val().userFavRecipe.recipeName;
-//   var recipeImage = childSnapshot.val().userFavRecipe.recipeImage;
-//   var recipeLink = childSnapshot.val().userFavRecipe.recipeLink;
-//   var recipeIngredients = childSnapshot.val().userFavRecipe.recipeIngredients;
-//   console.log(recipeName);
-//   console.log(recipeImage);
-//   console.log(recipeLink);
-//   console.log(recipeIngredients);
+//Code to Retrieve Saved Favorite Items from the Firebase Database STARTS Here
 
-//   $("#savedRecipe").on("click", function (){
+function retrieveSavedRecipes (arrayOfSavedRecipes) {
+  userName = firebase.auth().currentUser.email.split("@")[0];
+  database.ref().child(userName).once("value", function(snapshot) {
+      console.log("snapshot  value");
+      console.log(snapshot.val());
+      // var arrayOfSavedRecipes = [];
+      var currentSnap = snapshot.val();
+      for (var key in currentSnap) {
+        var userFavRecipe = {
+          recipeName: "",
+          recipeImage: "",
+          recipeLink: "",
+          recipeIngredients: [],
+        };
+        userFavRecipe.recipeName = currentSnap[key].recipeName;
+        userFavRecipe.recipeImage = currentSnap[key].recipeImage;
+        userFavRecipe.recipeLink = currentSnap[key].recipeLink;
+        userFavRecipe.recipeIngredients = currentSnap[key].recipeIngredients;
+        // console.log(userFavRecipe);
+        arrayOfSavedRecipes.push(userFavRecipe);
+        console.log(arrayOfSavedRecipes);
+      }
+      console.log("Full array of saved recipes within function: ");
+      console.log(arrayOfSavedRecipes);
+      // displayArrayOfSavedRecipes(arrayOfSavedRecipe);
+  });
+}
 
-//       var newCard = $("<div>").attr("id", "card" +i);
-//       newCard.addClass("card");
-//       newCard.addClass("small");
-//       newCard.addClass("col s12 m5");
-//       newCard.addClass("z-depth-4");
+//Code to test fire the retrieve function.
 
-//       var cardDesign = $("<div>");
-//       cardDesign.addClass("card-image");
-//       cardDesign.addClass("waves-effect");
-//       cardDesign.addClass("waves-block");
-//       cardDesign.addClass("waves-light");
+$(document).on("click", '#savedRecipe', function(event) {
+  event.preventDefault();
+  var arrayOfSavedRecipes = [];
+  retrieveSavedRecipes (arrayOfSavedRecipes);
+  console.log("Return from function: ");
+  console.log(arrayOfSavedRecipes);
+  // displayArrayOfSavedRecipes(arrayOfSavedRecipe);
+});
 
-//       var image = $("<img>").attr("id", "image");
-//       image.attr("src", results[i].recipe.image);
-//       // image.addClass("activator");
-//       image.width(623.625);
-//       image.height(415);  
 
-//       var newCardContent = $("<div>").attr("id", "newCardContent");
-//       newCardContent.addClass("card-content");
-//       newCardContent.addClass("blue lighten-5")
 
-//       var recipeTitle = $("<span>").attr("id", "span");
-//       recipeTitle.text(recipeName);
-//       recipeTitle.addClass("card-title");
-//       // recipeTitle.addClass("activator");
-//       recipeTitle.addClass("teal-text");
-//       recipeTitle.addClass("text-darken-4");
-
-//     })
-
+//Code to Retrieve Saved Favorite Items from the Firebase Database ENDS Here
