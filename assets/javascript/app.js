@@ -18,9 +18,11 @@ $("#hideMap").hide();
 // $(window).scroll(function(){
 //     if ($(window).scrollTop() >= 567) {
 //        $('.searchField').addClass('sticky');
+//        // $(".searchField").hide();
 //     }
 //     else {
 //        $('.searchField').removeClass('sticky');
+//        // $(".searchField").show();
 //     }
 // });
 
@@ -129,7 +131,7 @@ $(".chip").each(function () {
 
       var newCardContent = $("<div>").attr("id", "newCardContent");
       newCardContent.addClass("card-content");
-      newCardContent.addClass("blue lighten-5")
+      newCardContent.addClass("blue lighten-5");
 
       var recipeTitle = $("<span>").attr("id", "span");
       recipeTitle.text(results[i].recipe.label);
@@ -163,13 +165,15 @@ $(".chip").each(function () {
       var revealCard = $("<div>").attr("id", "revealCard");
       revealCard.addClass("card-reveal");
       revealCard.addClass("white");
+      revealCard.addClass("blue lighten-5");
+
 
 
       var hideIngredients = $("<i>").attr("id", "i2");
       hideIngredients.addClass("material-icons");
       hideIngredients.addClass("right");
       hideIngredients.addClass("activator");
-      hideIngredients.addClass("red-text")
+      hideIngredients.addClass("red-text");
       hideIngredients.text("close");
 
 

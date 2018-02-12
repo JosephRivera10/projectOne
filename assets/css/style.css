@@ -5,9 +5,19 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url("../images/background.jpg");
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed
 }
 main {
   flex: 1 0 auto;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
 }
 #map {
 	height: 400px;
@@ -20,22 +30,29 @@ main {
 }
 
 #btnLogin {
-	height: 64px;
+	height: 67px;
 	margin-right: 5px;
 	margin-left: 5px;
 font-family: 'Nunito', sans-serif;
 }
 #btnSignUp {
-	height: 64px;
+	height: 67px;
 	margin-right: 5px;
 	margin-left: 5px;
 font-family: 'Nunito', sans-serif;
 }
 #btnLogout {
-	height: 64px;
+	height: 67px;
 	margin-right: 5px;
 	margin-left: 5px;
 font-family: 'Nunito', sans-serif;
+}
+#savedRecipe{
+  height: 67px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-family: 'Nunito', sans-serif;
+
 }
 #txtEmail {
 font-family: 'Nunito', sans-serif;
@@ -48,16 +65,15 @@ font-family: 'Nunito', sans-serif;
 		background-image: url("../images/background.jpg");
 	height: 500px;
 	background-size: cover;
-/*	background-repeat: no-repeat;
-*/	background-attachment: fixed
+	background-attachment: fixed
 }
-/*.sticky {
+.sticky {
   position: fixed;
   height: 500px;
 	background-size: cover;
 	top: 0;
- 
-}*/
+/*	opacity: 0.5;
+*/ }
 #input {
 	margin-top: 0px;
 	padding-top: 70px;
@@ -99,6 +115,75 @@ font-family: 'Nunito', sans-serif;
 }
 #search {
 font-family: 'Nunito', sans-serif;
+}
+#test1:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid red; /* You need to change the colour here */
+  border-bottom: 2px solid red; /* And here */
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%; 
+}
+#test2:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid red; /* You need to change the colour here */
+  border-bottom: 2px solid red; /* And here */
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%; 
+}
+#test3:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid red; /* You need to change the colour here */
+  border-bottom: 2px solid red; /* And here */
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%; 
+}
+#card {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
 }
 #card0 {
 	margin: 4%;
@@ -163,10 +248,7 @@ font-family: 'Nunito', sans-serif;
 #newCardContent {
 	height: 147px;
 }
-#revealCard {
-	background-image: url("../images/notecard.jpg");
-	background-size: cover;
-}
+
 #spanIngredients {
 	font-weight: bold;
 	line-height: 1.6;
@@ -187,7 +269,7 @@ font-family: 'Nunito', sans-serif;
 #saveLikedRecipe {
 	color: #004d40;
 	position: absolute;
-    top: 10px;
+    top: 223px;
     right: 10px;
     z-index: 2;
 }
