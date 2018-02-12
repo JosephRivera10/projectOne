@@ -237,13 +237,14 @@ console.log(savedNewCard);
       console.log("Full array of saved recipes within function: ");
       console.log(arrayOfSavedRecipes);
       // displayArrayOfSavedRecipes(arrayOfSavedRecipe);
-  
+
   });
 }
 
 //Code to test fire the retrieve function.
 
 $(document).on("click", '#click', function(event) {
+
   event.preventDefault();
   var arrayOfSavedRecipes = [];
   retrieveSavedRecipes (arrayOfSavedRecipes);
@@ -251,5 +252,6 @@ $(document).on("click", '#click', function(event) {
   console.log(arrayOfSavedRecipes);
 });
   
+
 
 //Code to Retrieve Saved Favorite Items from the Firebase Database ENDS Here
