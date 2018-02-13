@@ -15,27 +15,14 @@ $("#btnSignUp").on("click", function(){
 $("#map").hide();
 $("#hideMap").hide();
 
-// $(document).ready(function () {
-
-//     $('#myform').validate({ // initialize the plugin
-//         rules: {
-//             field1: {
-//                 required: true,
-//                 email: true
-//             },
-//             field2: {
-//                 required: true,
-//                 minlength: 5
-//             }
-//         }
-//     });
-
+// $('#txtPassword').on('input', function() {
 // });
-// <form id="myform">
-//     <input type="text" name="field1" />
-//     <input type="text" name="field2" />
-//     <input type="submit" />
-// </form>
+// $('#txtPassword').on('input', function() {
+//   var input=$(this);
+//   var is_name=input.val();
+//   if(is_name){input.removeClass("invalid").addClass("valid");}
+//   else{input.removeClass("valid").addClass("invalid");}
+// });
 
 
 var queryURL;
@@ -162,8 +149,10 @@ $(".chip").each(function () {
       var recipeLikeButton = $("<i>").attr("id", "saveLikedRecipe");
       recipeLikeButton.addClass("material-icons");
       recipeLikeButton.addClass("right");
+      // recipeLikeButton.addClass("cursor");
       // recipeLikeButton.addClass("blue-text")
-      recipeLikeButton.text("thumb_up")
+      recipeLikeButton.text("thumb_up");
+
       
       var space = $("<p>");
 

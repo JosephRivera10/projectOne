@@ -23,13 +23,22 @@
                <a id="modal" class="right red btn modal-trigger" href="#modal1">Log In/Sign Up</a>
                <div id="modal1" class="modal">
                   <div class="modal-content">
-                     <input id="txtEmail" type="email" placeholder="Email">
-                     <!--  <span class="error">A valid email address is required</span> -->
-                     <input id="txtPassword" type="password" placeholder="Password">
-                     <!-- <span class="error">This field is required</span> -->        
+                    <form id="contact" method="post" action="">
+<!--                      <i class="material-icons right">more_vert</i>
+ -->                 <div class="input-field">
+                        <input id="txtEmail" type="email" class="validate" placeholder="Email">
+                        <label class="email" for="email" data-error="Requires Valid Email" data-success="right">Email</label>
+                     </div>
+                     <div class="input-field">
+                        <label class="password" for="contact_name" data-error="Requires Password" data-success="right">Password</label>
+                        <input id="txtPassword" type="password" placeholder="Password" class="validate">
+                        <span class="error">This field is required</span>
+                        
+                     </div>
+                     </form>      
                   </div>
                   <div class="modal-footer">
-                     <ul class="right hide-on-med-and-down">
+                     <ul class="right">
                         <li><button id="btnLogin" class="red login btn btn-action">Log In</button></li>
                         <li><button id="btnSignUp" class="red signUp btn btn-secondary">Sign Up</button></li>
                         <li><button id="btnLogout" class="red logOut btn btn-action hide">Log Out</button></li>
