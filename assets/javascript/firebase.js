@@ -113,7 +113,8 @@ $(document).on("click", '#saveLikedRecipe', function(event) {
 //Code to Add Favorite Items to the Firebase Database ENDS Here
 
 //Code to Retrieve Saved Favorite Items from the Firebase Database STARTS Here
-
+//document ready
+// setTimeout(retrieveSavedRecipes, 1000);
 function retrieveSavedRecipes (arrayOfSavedRecipes) {
   userName = firebase.auth().currentUser.email.split("@")[0];
   database.ref().child(userName).once("value", function(snapshot) {
@@ -133,12 +134,12 @@ function retrieveSavedRecipes (arrayOfSavedRecipes) {
         userFavRecipe.recipeLink = currentSnap[key].recipeLink;
         userFavRecipe.recipeIngredients = currentSnap[key].recipeIngredients;
         // console.log(userFavRecipe);
-        arrayOfSavedRecipes.push(userFavRecipe);
+        // arrayOfSavedRecipes.push(userFavRecipe);
 
       var savedNewCard = $("<div>").attr("id", "card");
       savedNewCard.addClass("card");
       savedNewCard.addClass("small");
-      savedNewCard.addClass("col s12 m5");
+      savedNewCard.addClass("col s11 m5");
       savedNewCard.addClass("z-depth-4");
       
       
@@ -243,14 +244,14 @@ console.log(savedNewCard);
 
 //Code to test fire the retrieve function.
 
-$(document).on("click", '#click', function(event) {
+// $(document).on("click", '#click', function(event) {
 
-  event.preventDefault();
-  var arrayOfSavedRecipes = [];
-  retrieveSavedRecipes (arrayOfSavedRecipes);
-  console.log("Return from function: ");
-  console.log(arrayOfSavedRecipes);
-});
+//   event.preventDefault();
+//   var arrayOfSavedRecipes = [];
+//   retrieveSavedRecipes (arrayOfSavedRecipes);
+//   console.log("Return from function: ");
+//   console.log(arrayOfSavedRecipes);
+// });
   
 
 

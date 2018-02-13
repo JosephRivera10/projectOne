@@ -15,16 +15,28 @@ $("#btnSignUp").on("click", function(){
 $("#map").hide();
 $("#hideMap").hide();
 
-// $(window).scroll(function(){
-//     if ($(window).scrollTop() >= 567) {
-//        $('.searchField').addClass('sticky');
-//        // $(".searchField").hide();
-//     }
-//     else {
-//        $('.searchField').removeClass('sticky');
-//        // $(".searchField").show();
-//     }
+// $(document).ready(function () {
+
+//     $('#myform').validate({ // initialize the plugin
+//         rules: {
+//             field1: {
+//                 required: true,
+//                 email: true
+//             },
+//             field2: {
+//                 required: true,
+//                 minlength: 5
+//             }
+//         }
+//     });
+
 // });
+// <form id="myform">
+//     <input type="text" name="field1" />
+//     <input type="text" name="field2" />
+//     <input type="submit" />
+// </form>
+
 
 var queryURL;
 
@@ -114,7 +126,7 @@ $(".chip").each(function () {
       var newCard = $("<div>").attr("id", "card" +i);
       newCard.addClass("card");
       newCard.addClass("small");
-      newCard.addClass("col s12 m5");
+      newCard.addClass("col s11 m5");
       newCard.addClass("z-depth-4");
 
       var cardDesign = $("<div>");

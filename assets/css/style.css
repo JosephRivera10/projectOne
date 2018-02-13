@@ -14,17 +14,6 @@
 main {
   flex: 1 0 auto;
 }
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
-}
-#map {
-	height: 400px;
-	width: 800px;
-	margin-left: 25%
-	margin-right: 25%;
-}
 #nav {
 	height: 67px;
 }
@@ -33,54 +22,50 @@ main {
 	height: 67px;
 	margin-right: 5px;
 	margin-left: 5px;
-font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 #btnSignUp {
 	height: 67px;
 	margin-right: 5px;
 	margin-left: 5px;
-font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 #btnLogout {
 	height: 67px;
 	margin-right: 5px;
 	margin-left: 5px;
-font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif;
+}
+#modal {
+  height: 67px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-family: 'Nunito', sans-serif;
+  padding-top: 16px;
 }
 #savedRecipe{
   height: 67px;
   margin-right: 5px;
   margin-left: 5px;
   font-family: 'Nunito', sans-serif;
-
 }
 #txtEmail {
 font-family: 'Nunito', sans-serif;
+color: black;
 }
-#txtPasswork {
+#txtPassword {
 font-family: 'Nunito', sans-serif;
+color: black;
 }
-
-.searchField {
-		background-image: url("../images/background.jpg");
-	height: 500px;
-	background-size: cover;
-	background-attachment: fixed
-}
-.sticky {
-  position: fixed;
-  height: 500px;
-	background-size: cover;
-	top: 0;
-/*	opacity: 0.5;
-*/ }
 #input {
 	margin-top: 0px;
 	padding-top: 70px;
 	display: flex;
 }
 #ingredients {
-font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  opacity: 0.75;
+  flex: 1;
 }
 #enterIngredients {
 	font-size: 35px;
@@ -96,32 +81,29 @@ font-family: 'Nunito', sans-serif;
 #add {
 	height: 46px;
 }
-#ingredients {
-	opacity: 0.75;
-	flex: 1;
-}
-
 #selector {
 	font-size: 25px;
 	padding-left: 30px;
+  font-family: 'Nunito', sans-serif;
 	text-shadow: 
-	-1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
+	-1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+     1px 1px 0 #fff;
+     font-weight: bold;
+     letter-spacing: 3px;
 }
-.chip {
-font-family: 'Nunito', sans-serif;
-}
-#search {
-font-family: 'Nunito', sans-serif;
+[type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after {
+
+  border: 2px solid red !important;
 }
 #test1:checked + label:before {
   top: -4px;
   left: -3px;
   width: 12px;
   height: 22px;
-  border-top: 2px solid transparent;
+/*  outline: 2px solid red !important;
+*/  border-top: 2px solid transparent;
   border-left: 2px solid transparent;
   border-right: 2px solid red; /* You need to change the colour here */
   border-bottom: 2px solid red; /* And here */
@@ -178,6 +160,12 @@ font-family: 'Nunito', sans-serif;
   -ms-transform-origin: 100% 100%;
   -o-transform-origin: 100% 100%;
   transform-origin: 100% 100%; 
+}
+.chip {
+font-family: 'Nunito', sans-serif;
+}
+#search {
+font-family: 'Nunito', sans-serif;
 }
 #card {
   margin: 4%;
@@ -269,9 +257,9 @@ font-family: 'Nunito', sans-serif;
 #saveLikedRecipe {
 	color: #004d40;
 	position: absolute;
-    top: 223px;
-    right: 10px;
-    z-index: 2;
+  top: 223px;
+  right: 10px;
+  z-index: 2;
 }
 #saveLikedRecipe:hover {
 	color: red;
@@ -282,11 +270,32 @@ font-family: 'Nunito', sans-serif;
 }
 #googleMap {
 	margin-bottom: 15px;
-font-family: 'Nunito', sans-serif;
-	
+  font-family: 'Nunito', sans-serif;
+  position:relative;
+  left: 16%;
+  margin-top: 24%;
 }
 #hideMap {
 	display: inline;
 	margin-bottom: 15px;
-
+  position:relative;
+  left: 16%;
+  margin-top: 24%;
 }
+#map {
+  height: 400px;
+  width: 887px;
+}
+
+@media screen and (max-width: 1118px){
+#input {
+  padding-top: 120px;
+}
+}
+
+/*@media screen and (max-width:) {
+#nav {
+  height: 80px !important;
+}
+  
+}*/
