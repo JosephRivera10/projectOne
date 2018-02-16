@@ -380,6 +380,12 @@ font-family: 'Nunito', sans-serif;
     margin-left: 25px;
   }
  }
+ @media screen and (max-width: 405px){
+  #map {
+    width: 300px;
+    margin-left: 25px;
+  }
+ }
 @media screen and (max-width: 657px){
 #input {
   padding-top: 170px;
