@@ -345,29 +345,41 @@ font-family: 'Nunito', sans-serif;
     margin-top: 15px;
   }
 }
-@media screen and (max-width: 1110px){
-  #map {
-    width: 700px;
-  }
-}
 
 @media screen and (max-width: 1135px){
 #input {
   padding-top: 120px;
 }
 }
+@media screen and (max-width: 1110px){
+  #map {
+    width: 700px;
+  }
+}
+
+
 @media screen and (max-width: 880px){
   #map {
     width: 500px;
   }
+}
   @media screen and (max-width: 640px){
   #map {
-    width: 300px;
+    width: 400px;
   }
+}
   @media screen and (max-width: 640px){
   #map {
-    width: 200px;
+    width: 400px;
+    margin-left: 25px;
   }
+ }
+ @media screen and (max-width: 455px){
+  #map {
+    width: 350px;
+    margin-left: 25px;
+  }
+ }
 @media screen and (max-width: 657px){
 #input {
   padding-top: 170px;
@@ -379,6 +391,7 @@ font-family: 'Nunito', sans-serif;
 #nav {
   height: 137px !important;
 }
+
 #modal {
   position: absolute;
   top: 70px;
