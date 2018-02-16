@@ -26,7 +26,27 @@ document.addEventListener("DOMContentLoaded",function(event){
       // auth.createUserWithEmailAndPassword(email, pass);
       // auth.onAuthStateChanged(firebaseUser => { });
       //Add login event
+              document.getElementById("message3").style.display = "none";
+
       btnLogin.addEventListener('click', e => {
+        var myInput = document.getElementById("txtPassword");
+
+        if(myInput.value.length >= 1) {
+        document.getElementById("message2").style.display = "none";
+        } else {
+        document.getElementById("message2").style.display = "block";
+
+        }
+         var emailInput = document.getElementById("txtEmail");
+
+        if(emailInput.value.length >= 1) {
+        document.getElementById("message3").style.display = "none";
+        } else {
+        document.getElementById("message3").style.display = "block";
+          emailInput.onkeyup = function() {
+          document.getElementById("message3").style.display = "none";
+          }
+        }
         //Get  email and pass
         const email = txtEmail.value;
         const pass = txtPassword.value;
@@ -37,6 +57,25 @@ document.addEventListener("DOMContentLoaded",function(event){
       });
       //Add signup event
       btnSignUp.addEventListener('click', e => {
+
+        var myInput = document.getElementById("txtPassword");
+
+        if(myInput.value.length >= 1) {
+        document.getElementById("message2").style.display = "none";
+        } else {
+        document.getElementById("message2").style.display = "block";
+
+        }
+         var emailInput = document.getElementById("txtEmail");
+
+        if(emailInput.value.length >= 1) {
+        document.getElementById("message3").style.display = "none";
+        } else {
+        document.getElementById("message3").style.display = "block";
+          emailInput.onkeyup = function() {
+          document.getElementById("message3").style.display = "none";
+          }
+        }
         //Get  email and pass
         //TO DO: CHECK FOR REAL EMAIL
         const email = txtEmail.value;

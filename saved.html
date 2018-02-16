@@ -7,15 +7,16 @@
       <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
       <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Nunito:900" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
    </head>
    <body class = "body" onload='retrieveSavedRecipes()'>
       <main>
-         <nav id="nav" class="white">
+        <nav id="nav" class="white">
             <div class="nav-wrapper">
-               <a href="projectOne.html" class="brand-logo center red-text">Chef Now</a>
+               <a href="projectOne.html" id="logo" class="brand-logo center red-text"><img src="assets/images/chef.png" class="chefHat" alt="Chef Hat">Chef Now</a>
+             
                <!-- <a href="#" data-activates="mobile-demo" class="button-collapse black-text"><i class=" black-text material-icons">menu</i></a> -->
                <ul class="left red">
                   <li><a id="savedRecipe" href="saved.html" target="_blank">Saved Recipes</a></li>
@@ -23,20 +24,42 @@
                <a id="modal" class="right red btn modal-trigger" href="#modal1">Log In/Sign Up</a>
                <div id="modal1" class="modal">
                   <div class="modal-content">
-                     <input id="txtEmail" type="email" placeholder="Email">
-                     <input id="txtPassword" type="password" placeholder="Password">
+                    <form id="contact" method="post" action="">
+<!--                      <i class="material-icons right">more_vert</i>
+ -->                 <div class="input-field">
+                        <input id="txtEmail" type="email" class="validate" placeholder="Email">
+                        <label class="email" for="email" data-error="Requires Valid Email" data-success="right">Email</label>
+
+                        
+                        <span><p id="message3">Requires Valid Email</p><span>
+                     </div>
+                     <div class="input-field">
+                        <label class="password" for="contact_name" data-error="Requires Password" data-success="right">Password</label>
+                        <input id="txtPassword" type="password" placeholder="Password" class="validate">
+                        <span><p id="message2">Please Fill Out This Field</p><span>
+
+                        
+                     </div>
+                     </form>      
                   </div>
                   <div class="modal-footer">
-                     <ul class="right hide-on-med-and-down">
+                     <ul class="right">
                         <li><button id="btnLogin" class="red login btn btn-action">Log In</button></li>
                         <li><button id="btnSignUp" class="red signUp btn btn-secondary">Sign Up</button></li>
                         <li><button id="btnLogout" class="red logOut btn btn-action hide">Log Out</button></li>
                      </ul>
-                     <ul class="side-nav" id="mobile-demo">
+                     <ul>
+                        <li><span><a href="#"><i id="closeModal" class="material-icons right red-text">close</i></a></span></li>
+                     </ul>
+
+                     
+                     <!-- <ul class="side-nav" id="mobile-demo">
                         <li><button id="btnLogin" class="red login btn btn-action">Log In</button></li>
                         <li><button id="btnSignUp" class="red signUp btn btn-secondary">Sign Up</button></li>
                         <li><button id="btnLogout" class="red logOut btn btn-action hide">Log Out</button></li>
-                     </ul>
+
+
+                     </ul> -->
                   </div>
                </div>
             </div>
@@ -51,8 +74,10 @@
             <div class="col s12 m8 offset-m2">
                <button id="googleMap" class="btn red" type="submit" name="action"><i class="material-icons">local_grocery_store</i> Grocery Stores Near Me</button> 
                <button id="hideMap" class="btn red" type="submit" name="action"><i class="material-icons">close</i></button>
-               <div id="map"></div>
             </div>
+         </div>
+         <div class="row">
+            <div id="map" class="col s12 m8 offset-m2"></div>
          </div>
       </main>
       <footer class="page-footer red">

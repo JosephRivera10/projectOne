@@ -1,19 +1,41 @@
 
 
-$(".authContainer").hide();
-
-
-$("#btnLogin").on("click", function(){
-  $(".authContainer").fadeToggle( "slow", "linear" );
-
-});
-$("#btnSignUp").on("click", function(){
-  $(".authContainer").fadeToggle( "slow", "linear" );
-});
-
 
 $("#map").hide();
 $("#hideMap").hide();
+
+
+          $('.modal').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      inDuration: 300, // Transition in duration
+      outDuration: 200, // Transition out duration
+      startingTop: '4%', // Starting top style attribute
+      endingTop: '10%', // Ending top style attribute
+    }
+  );
+
+$("#closeModal").on("click", function() {
+   $("#modal1").hide();
+   $("#txtPassword").val("");
+   $("#txtEmail").val("");
+})
+var myInput = document.getElementById("txtPassword");
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+    document.getElementById("message2").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+    document.getElementById("message2").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+document.getElementById("message2").style.display = "none";
+}
+
 
 // $('#txtPassword').on('input', function() {
 // });
@@ -125,8 +147,8 @@ $(".chip").each(function () {
       var image = $("<img>").attr("id", "image");
       image.attr("src", results[i].recipe.image);
       // image.addClass("activator");
-      image.width(623.625);
-      image.height(415);
+      // image.width(623.625);
+      // image.height(415);
 
       var newCardContent = $("<div>").attr("id", "newCardContent");
       newCardContent.addClass("card-content");
@@ -146,7 +168,8 @@ $(".chip").each(function () {
       showIngredients.addClass("teal-text text-darken-4")
       showIngredients.text("more_vert")
 
-      var recipeLikeButton = $("<i>").attr("id", "saveLikedRecipe");
+      var recipeLikeButton = $("<i>");
+      recipeLikeButton = $("<a>").attr("href", "#").attr("id", "saveLikedRecipe");
       recipeLikeButton.addClass("material-icons");
       recipeLikeButton.addClass("right");
       // recipeLikeButton.addClass("cursor");
@@ -158,6 +181,7 @@ $(".chip").each(function () {
 
       var link = $("<a>").attr("id", "a");
       link.attr("href", results[i].recipe.url);
+      link.attr("target", "_blank");
       link.addClass("red-text text-lighten-1");
       link.text("Recipe Link");
       // link.target("_blank");
@@ -227,25 +251,35 @@ $(".chip").each(function () {
       $("#googleMap").on("click", function (){
       $("#map").show();
       $("#hideMap").show();
-       navigator.geolocation.getCurrentPosition(function(position){ 
-  var lat = position.coords.latitude;
-  var lng = position.coords.longitude;
-  console.log(lat);
-  console.log(lng);
-  initMap(lat, lng);
-});
+      initMap();
+//        navigator.geolocation.getCurrentPosition(function(position){ 
+//   var lat = position.coords.latitude;
+//   var lng = position.coords.longitude;
+//   console.log(lat);
+//   console.log(lng);
+//   initMap(lat, lng);
+// });
       })
       $("#hideMap").on("click", function () {
         $("#map").hide();
         $("#hideMap").hide();
       })
 
+// AIzaSyCLC-T_zVNA5zD_iiAoQOH1-SjI5QyuNG0
+
+
+// https://maps.googleapis.com/maps/api/place/nearbysearch/json
+//   ?location=-33.8670522,151.1957362
+//   &radius=500
+//   &types=food
+//   &name=harbour
+//   &key=YOUR_API_KEY
 
       var map;
       var infowindow;
 
-      function initMap(lat, lng) {
-        var city = {lat: parseFloat(lat), lng: parseFloat(lng)};
+      function initMap() {
+        var city = {lat: 30.2672, lng: -97.7431};
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: city,
@@ -256,7 +290,7 @@ $(".chip").each(function () {
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: city,
-          radius: 700,
+          radius: 2000,
           type: ['grocery_or_supermarket']
         }, callback);
       }
@@ -281,13 +315,69 @@ $(".chip").each(function () {
           infowindow.open(map, this);
         });
       }
+
+//       var map;
+// var infoWindow;
+// var service;
+
+// function initMap(lat, lng ) {
+//   map = new google.maps.Map(document.getElementById('map'), {
+//     center: {lat: parseFloat(lat), lng: parseFloat(lng)},
+//     zoom: 15,
+//     styles: [{
+//       stylers: [{ visibility: 'simplified' }]
+//     }, {
+//       elementType: 'labels',
+//       stylers: [{ visibility: 'off' }]
+//     }]
+//   });
+
+//   infoWindow = new google.maps.InfoWindow();
+//   service = new google.maps.places.PlacesService(map);
+
+//   // The idle event is a debounced event, so we can query & listen without
+//   // throwing too many requests at the server.
+//   map.addListener('idle', performSearch);
+// }
+
+// function performSearch() {
+//   var request = {
+//     bounds: map.getBounds(),
+//     keyword: 'best view'
+//   };
+//   service.radarSearch(request, callback);
+// }
+
+// function callback(results, status) {
+//   if (status !== google.maps.places.PlacesServiceStatus.OK) {
+//     console.error(status);
+//     return;
+//   }
+//   for (var i = 0, result; result = results[i]; i++) {
+//     addMarker(result);
+//   }
+// }
+
+// function addMarker(place) {
+//   var marker = new google.maps.Marker({
+//     map: map,
+//     position: place.geometry.location,
+//     icon: {
+//       url: 'https://developers.google.com/maps/documentation/javascript/images/circle.png',
+//       anchor: new google.maps.Point(10, 10),
+//       scaledSize: new google.maps.Size(10, 17)
+//     }
+//   });
+
+//   google.maps.event.addListener(marker, 'click', function() {
+//     service.getDetails(place, function(result, status) {
+//       if (status !== google.maps.places.PlacesServiceStatus.OK) {
+//         console.error(status);
+//         return;
+//       }
+//       infoWindow.setContent(result.name);
+//       infoWindow.open(map, marker);
+//     });
+//   });
+// }
     
-          $('.modal').modal({
-      dismissible: true, // Modal can be dismissed by clicking outside of the modal
-      opacity: .5, // Opacity of modal background
-      inDuration: 300, // Transition in duration
-      outDuration: 200, // Transition out duration
-      startingTop: '4%', // Starting top style attribute
-      endingTop: '10%', // Ending top style attribute
-    }
-  );
