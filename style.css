@@ -1,0 +1,454 @@
+
+.body {
+    background-color: #white;
+     font-family: 'Pacifico';
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url("../images/background.jpg");
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed
+}
+main {
+  flex: 1 0 auto;
+}
+#nav {
+  height: 67px;
+}
+
+#btnLogin {
+  height: 67px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-family: 'Nunito', sans-serif;
+}
+#btnSignUp {
+  height: 67px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-family: 'Nunito', sans-serif;
+}
+#btnLogout {
+  height: 67px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-family: 'Nunito', sans-serif;
+}
+#modal {
+  height: 67px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-family: 'Nunito', sans-serif;
+  padding-top: 16px;
+}
+#savedRecipe{
+  height: 67px;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-family: 'Nunito', sans-serif;
+}
+#txtEmail {
+font-family: 'Nunito', sans-serif;
+color: black;
+}
+#txtPassword {
+font-family: 'Nunito', sans-serif;
+color: black;
+padding-top: 25px;
+}
+.password{
+  margin-top: 15px;
+  font-family: 'Nunito', sans-serif;
+}
+#message2 {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  color: red;
+  font-family: 'Nunito', sans-serif;
+}
+#message3 {
+      position: absolute;
+    left: 0px;
+    top: 30px;
+  color: red;
+  font-family: 'Nunito', sans-serif;
+}
+.email{
+  font-family: 'Nunito', sans-serif;
+
+}
+#closeModal {
+      position: absolute;
+        right: 15px;
+    top: -5px;
+}
+#input {
+  margin-top: 0px;
+  padding-top: 70px;
+  display: flex;
+}
+/*.error{
+  display: none;
+  margin-left: 10px;
+}   
+.error_show{
+  color: red;
+  margin-left: 10px;
+}
+input.invalid, textarea.invalid{
+  border: 2px solid red;
+}
+input.valid, textarea.valid{
+  border: 2px solid green;
+}*/
+#ingredients {
+  font-family: 'Nunito', sans-serif;
+  opacity: 0.75;
+  flex: 1;
+}
+#enterIngredients {
+  font-size: 35px;
+  font-weight: bold;
+  text-shadow:
+   -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+     1px 1px 0 #fff;
+     letter-spacing: 2px;
+     margin-top: 40px;
+  line-height: 1.6;
+
+}
+#add {
+  height: 46px;
+}
+#selector {
+  font-size: 25px;
+  padding-left: 30px;
+  font-family: 'Nunito', sans-serif;
+  text-shadow: 
+  -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+     1px 1px 0 #fff;
+     font-weight: 900;
+     letter-spacing: 3px;
+}
+[type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after {
+
+  border: 2px solid red !important;
+}
+#test1:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+/*  outline: 2px solid red !important;
+*/  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid red; /* You need to change the colour here */
+  border-bottom: 2px solid red; /* And here */
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%; 
+}
+#test2:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid red; /* You need to change the colour here */
+  border-bottom: 2px solid red; /* And here */
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%; 
+}
+#test3:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid red; /* You need to change the colour here */
+  border-bottom: 2px solid red; /* And here */
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%; 
+}
+.chip {
+font-family: 'Nunito', sans-serif;
+}
+#search {
+font-family: 'Nunito', sans-serif;
+}
+#card {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card0 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card1 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card2 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card3 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card4 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card5 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card6 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card7 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card8 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#card9 {
+  margin: 4%;
+  padding-left: 0px;
+    padding-right: 0px;
+    height: 370px;
+}
+#image {
+  object-fit: cover;
+}
+#newCardContent {
+  height: 147px;
+}
+
+#spanIngredients {
+  font-weight: bold;
+  line-height: 1.6;
+font-family: 'Nunito', sans-serif;
+}
+
+#i {
+  font-weight: bold;
+}
+#a {
+  font-weight: bold;
+  font-size: 16px;
+}
+#i2 {
+  font-weight: bold;
+
+}
+#saveLikedRecipe {
+  color: #004d40;
+  position: absolute;
+  top: 230px;
+  right: 10px;
+  z-index: 2;
+}
+#saveLikedRecipe:hover {
+  color: red;
+}
+#saveLikedRecipe:focus {
+  color: black;
+  opacity: 0.25;
+}
+#googleMap {
+  margin-bottom: 15px;
+  font-family: 'Nunito', sans-serif;
+  position:absolute;
+  left: 16%;
+  margin-bottom: 0%;
+  margin-top: -25px;
+}
+#hideMap {
+  display: inline;
+  margin-bottom: 15px;
+  position:absolute;
+  left: 37%;
+  margin-bottom: 0%;
+  margin-top: -25px;
+}
+#map {
+  height: 400px;
+  width: 887px;
+/*  margin-top: 20px;
+*/}
+@media screen and (max-width: 1477px){
+#hideMap {
+  margin-bottom: 15px;
+  position:relative;
+  left: 16%;
+    margin-bottom: 0%;
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 1135px){
+#input {
+  padding-top: 120px;
+}
+}
+@media screen and (max-width: 1110px){
+  #map {
+    width: 700px;
+  }
+}
+
+
+@media screen and (max-width: 880px){
+  #map {
+    width: 500px;
+  }
+}
+  @media screen and (max-width: 640px){
+  #map {
+    width: 400px;
+  }
+}
+  @media screen and (max-width: 640px){
+  #map {
+    width: 400px;
+    margin-left: 25px;
+  }
+ }
+ @media screen and (max-width: 455px){
+  #map {
+    width: 350px;
+    margin-left: 25px;
+  }
+ }
+@media screen and (max-width: 657px){
+#input {
+  padding-top: 170px;
+}
+}
+
+
+@media screen and (max-width: 550px) {
+#nav {
+  height: 137px !important;
+}
+
+#modal {
+  position: absolute;
+  top: 70px;
+  left: -4px;
+}
+}
+
+@media screen and (max-width: 470px) {
+  #nav {
+    height: 210px !important;
+  }
+  #savedRecipe {
+    position:absolute;
+    top: 140px;
+    left: -4px;
+    background: red;
+  }
+}
+
+@media screen and (max-width: 444px) {
+  #input {
+    padding-top: 170px;
+  }
+  #hideMap {
+  margin-bottom: 15px;
+  position:relative;
+  left: 0%;
+    margin-bottom: 0%;
+    margin-top: 15px;
+  }
+  #googleMap {
+  margin-bottom: 15px;
+  position:absolute;
+  left: 0%;
+  margin-bottom: 0%;
+  margin-top: -25px;
+}
+
+}
+
+@media screen and (max-width: 330px) {
+  a#logo.brand-logo.center.red-text {
+    position: absolute !important;
+    left: 90px !important;  
+  }
+}
+@media screen and (max-width: 305px) {
+  #input {
+    padding-top: 205px;
+  }
+  #googleMap {
+  font-size: 11.5px;
+  margin-bottom: 15px;
+  position:absolute;
+  left: 0%;
+  margin-bottom: 0%;
+  margin-top: -25px;
+}
+}
+
