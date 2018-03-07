@@ -1,4 +1,5 @@
 
+
 .body {
     background-color: #white;
      font-family: 'Pacifico';
@@ -44,6 +45,7 @@ main {
   padding-top: 16px;
 }
 #savedRecipe{
+  padding-top: 16px;
   height: 67px;
   margin-right: 5px;
   margin-left: 5px;
@@ -85,6 +87,7 @@ padding-top: 25px;
         right: 15px;
     top: -5px;
 }
+
 #input {
   margin-top: 0px;
   padding-top: 70px;
@@ -147,10 +150,10 @@ input.valid, textarea.valid{
   width: 12px;
   height: 22px;
 /*  outline: 2px solid red !important;
-*/  border-top: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-right: 2px solid red; /* You need to change the colour here */
-  border-bottom: 2px solid red; /* And here */
+*/  border-top: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  border-right: 2px solid red !important; /* You need to change the colour here */
+  border-bottom: 2px solid red !important; /* And here */
   -webkit-transform: rotate(40deg);
   -moz-transform: rotate(40deg);
   -ms-transform: rotate(40deg);
@@ -168,10 +171,11 @@ input.valid, textarea.valid{
   left: -3px;
   width: 12px;
   height: 22px;
-  border-top: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-right: 2px solid red; /* You need to change the colour here */
-  border-bottom: 2px solid red; /* And here */
+/*  outline: 2px solid red !important;
+*/  border-top: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  border-right: 2px solid red !important; /* You need to change the colour here */
+  border-bottom: 2px solid red !important; /* And here */
   -webkit-transform: rotate(40deg);
   -moz-transform: rotate(40deg);
   -ms-transform: rotate(40deg);
@@ -189,10 +193,11 @@ input.valid, textarea.valid{
   left: -3px;
   width: 12px;
   height: 22px;
-  border-top: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-right: 2px solid red; /* You need to change the colour here */
-  border-bottom: 2px solid red; /* And here */
+/*  outline: 2px solid red !important;
+*/  border-top: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  border-right: 2px solid red !important; /* You need to change the colour here */
+  border-bottom: 2px solid red !important; /* And here */
   -webkit-transform: rotate(40deg);
   -moz-transform: rotate(40deg);
   -ms-transform: rotate(40deg);
@@ -321,7 +326,7 @@ font-family: 'Nunito', sans-serif;
   position:absolute;
   left: 16%;
   margin-bottom: 0%;
-  margin-top: -25px;
+  margin-top: -18px;
 }
 #hideMap {
   display: inline;
@@ -329,20 +334,26 @@ font-family: 'Nunito', sans-serif;
   position:absolute;
   left: 37%;
   margin-bottom: 0%;
-  margin-top: -25px;
+  margin-top: -18px;
 }
 #map {
   height: 400px;
   width: 887px;
 /*  margin-top: 20px;
 */}
+.container {
+    font-family: 'Nunito', sans-serif;
+  }
+  #github {
+    color: white;
+  }
 @media screen and (max-width: 1477px){
 #hideMap {
   margin-bottom: 15px;
   position:relative;
   left: 16%;
     margin-bottom: 0%;
-    margin-top: 15px;
+    margin-top: 25px;
   }
 }
 
