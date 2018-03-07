@@ -405,21 +405,14 @@ font-family: 'Nunito', sans-serif;
 
 
 @media screen and (max-width: 550px) {
-#nav {
-  height: 137px !important;
-}
-
 #modal {
-  position: absolute;
   top: 70px;
   left: -4px;
 }
 }
 
 @media screen and (max-width: 470px) {
-  #nav {
-    height: 210px !important;
-  }
+
   #savedRecipe {
     position:absolute;
     top: 140px;
@@ -468,5 +461,4 @@ font-family: 'Nunito', sans-serif;
   margin-top: -25px;
 }
 }
-
 
