@@ -1,5 +1,6 @@
 
 
+$(".button-collapse").sideNav();
 
 $("#map").hide();
 $("#hideMap").hide();
