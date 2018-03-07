@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="us-en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Saved Recipes</title>
-      <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-      <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Nunito:900" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-   </head>
-   <body class = "body" onload='retrieveSavedRecipes()'>
-      <main>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Recipes</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+
+<body class="body" onload='retrieveSavedRecipes()'>
+    <main>
         <nav id="nav" class="white">
             <div class="nav-wrapper">
-               <a href="projectOne.html" id="logo" class="brand-logo center red-text"><img src="assets/images/chef.png" class="chefHat" alt="Chef Hat">Chef Now</a>
-               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons red-text">menu</i></a>
-                      
-               <ul class="right hide-on-med-and-down">
-                  <li><a id="savedRecipe" class="red btn" href="saved.html" target="_blank">Saved Recipes</a></li>
-                  <li><a id="modal" class="red btn modal-trigger" href="#modal1">Log In/Sign Up</a></li>
-               </ul>
-               <ul class="side-nav" id="mobile-demo">
-                  <li><a id="savedRecipe" class="red btn" href="saved.html" target="_blank">Saved Recipes</a></li>
-                  <li><a id="modal" class=" red btn modal-trigger" href="#modal1">Log In/Sign Up</a></li>
-               </ul>
-               
-                  <div id="modal1" class="modal">
-                     <div class="modal-content">
+                <a href="projectOne.html" id="logo" class="brand-logo center red-text"><img src="assets/images/chef.png" class="chefHat" alt="Chef Hat">Chef Now</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons red-text">menu</i></a>
+
+                <ul class="right hide-on-med-and-down">
+                    <li><a id="savedRecipe" class="red btn" href="saved.html" target="_blank">Saved Recipes</a></li>
+                    <li><a id="modal" class="red btn modal-trigger" href="#modal1">Log In/Sign Up</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a id="savedRecipe" class="red btn" href="saved.html" target="_blank">Saved Recipes</a></li>
+                    <li><a id="modal" class=" red btn modal-trigger" href="#modal1">Log In/Sign Up</a></li>
+                </ul>
+
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
                         <form id="contact" method="post" action="">
-                           <div class="input-field">
-                              <input id="txtEmail" type="email" class="validate" placeholder="Email">
-                              <label class="email" for="email" data-error="Requires Valid Email" data-success="right">Email</label>
-                              <span><p id="message3">Requires Valid Email</p><span>
+                            <div class="input-field">
+                                <input id="txtEmail" type="email" class="validate" placeholder="Email">
+                                <label class="email" for="email" data-error="Requires Valid Email" data-success="right">Email</label>
+                                <span><p id="message3">Requires Valid Email</p><span>
                            </div>
                            <div class="input-field">
                               <label class="password" for="contact_name" data-error="Requires Password" data-success="right">Password</label>
@@ -50,41 +52,42 @@
                               </ul>
                               <ul>
                                  <li><span><a href="#"><i id="closeModal" class="material-icons right red-text">close</i></a></span></li>
-                              </ul>
-                           </div>
-                  </div>
-               
-            </div>
-         </nav>
-         <div class="row">
+                                </ul>
+                            </div>
+                    </div>
+
+                </div>
+        </nav>
+        <div class="row">
             <div class="col s12 m10 offset-m1" id="cardArea">
-               <div id="likedRecipes">
-               </div>
+                <div id="likedRecipes">
+                </div>
             </div>
-         </div>
-         <div class="row">
+        </div>
+        <div class="row">
             <div class="col s12 m8 offset-m2">
-               <button id="googleMap" class="btn red" type="submit" name="action"><i class="material-icons teal-text text-darken-4">local_grocery_store</i> Grocery Stores Near Me</button> 
-               <button id="hideMap" class="btn red" type="submit" name="action"><i class="material-icons teal-text text-darken-4">close</i></button>
+                <button id="googleMap" class="btn red" type="submit" name="action"><i class="material-icons teal-text text-darken-4">local_grocery_store</i> Grocery Stores Near Me</button>
+                <button id="hideMap" class="btn red" type="submit" name="action"><i class="material-icons teal-text text-darken-4">close</i></button>
             </div>
-         </div>
-         <div class="row">
+        </div>
+        <div class="row">
             <div id="map" class="col s12 m8 offset-m2"></div>
-         </div>
-      </main>
-      <footer class="page-footer red">
-         <div class="footer-copyright">
+        </div>
+    </main>
+    <footer class="page-footer red">
+        <div class="footer-copyright">
             <div class="container">
-               © 2018 Joseph Rivera | <a href="https://github.com/JosephRivera10/projectOne" id="github" target="_blank">Github</a>
+                © 2018 Joseph Rivera | <a href="https://github.com/JosephRivera10/projectOne" id="github" target="_blank">Github</a>
             </div>
-         </div>
-      </footer>
-   </body>
-   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-   <script rel="stylesheet" type="text/javascript" src="assets/javascript/firebase.js"></script> 
-   <script rel="stylesheet" type="text/javascript" src="assets/javascript/savedRecipes.js"></script>
-   <script rel="stylesheet" type="text/javascript" src="assets/javascript/app.js"></script>
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCitL6WLGCbBt_YLF_-L1pmIFgzoo4zh4Q&libraries=places&callback=initMap" async defer></script>
+        </div>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script rel="stylesheet" type="text/javascript" src="assets/javascript/firebase.js"></script>
+<script rel="stylesheet" type="text/javascript" src="assets/javascript/savedRecipes.js"></script>
+<script rel="stylesheet" type="text/javascript" src="assets/javascript/app.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCitL6WLGCbBt_YLF_-L1pmIFgzoo4zh4Q&libraries=places&callback=initMap" async defer></script>
+
 </html>
