@@ -413,6 +413,7 @@ font-family: 'Nunito', sans-serif;
 @media screen and (max-width: 470px) {
 
   #savedRecipe {
+      
     top: 140px;
     left: -4px;
     background: red;
